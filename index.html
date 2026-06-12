@@ -1156,4 +1156,11 @@ footer a{color:#c4d3e4;text-decoration:none}
         +'Estimated opportunity: '+fmt(lo)+' - '+fmt(hi)+'/yr%0D%0A'
         +'Business type: '+industry+'%0D%0A%0D%0A'
         +'Please send my full report. My business is: [your business name]%0D%0AWebsite: [your website]';
-      location.href='mailto:hello@fractionalai.net?subject=My AI Opportun
+      location.href='mailto:hello@fractionalai.net?subject=My AI Opportunity Report&body='+body;
+      /* TODO-RYAN: replace mailto with Tally form or backend endpoint for cleaner capture */
+    });
+  }
+})();
+</script>
+</body>
+</html>
