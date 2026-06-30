@@ -62,7 +62,9 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--txt);background:var(--
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 h1,h2,h3{color:var(--ink);line-height:1.15;letter-spacing:-.02em}
 h2{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800}
-.kicker{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber2);margin-bottom:14px}
+.kicker{display:inline-block;font-size:.95rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--amber2);margin-bottom:14px}
+.hero .kicker,.score-sec .kicker,.video-sec .kicker{color:var(--amber)}
+.hero .kicker{font-size:clamp(1.05rem,2.6vw,1.6rem);letter-spacing:.1em;margin-bottom:20px;text-shadow:0 2px 18px rgba(0,0,0,.55)}
 .sub{font-size:1.1rem;color:var(--txt2);max-width:640px}
 section{padding:84px 0}
 .btn{display:inline-block;font-weight:700;border-radius:999px;text-decoration:none;text-align:center;transition:.18s;cursor:pointer;border:0;font-family:inherit;font-size:1rem}
@@ -142,6 +144,9 @@ section{padding:84px 0}
 .worklist{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 18px}
 .work{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:.9rem;font-weight:600;color:var(--ink2);box-shadow:var(--sh)}
 .note{font-size:.95rem;color:var(--txt2)}
+.keyline{margin-top:30px;background:linear-gradient(135deg,var(--amber-soft),#fff);border:1.5px solid var(--amber);border-left:6px solid var(--amber);border-radius:var(--r-lg);padding:24px 28px;font-size:clamp(1.15rem,2.2vw,1.45rem);line-height:1.45;color:var(--ink);box-shadow:0 6px 22px rgba(245,158,11,.16)}
+.keyline strong{color:var(--ink);font-weight:800}
+.keyline .pop{color:var(--amber2);font-weight:800}
 
 /* scorecard */
 .score-sec{background:linear-gradient(160deg,#16304f,#0e1b2c);color:#fff}
@@ -172,6 +177,22 @@ section{padding:84px 0}
 .rec .map{display:inline-block;margin-top:8px;font-size:.8rem;font-weight:700;color:var(--amber)}
 .res-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
 .fine{font-size:.8rem;color:#8da2bb;margin-top:18px}
+/* additional-clients calculator */
+.dial-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;flex:none}
+.dial-lbl{font-size:.74rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--amber)}
+.calc{background:rgba(245,158,11,.10);border:1.5px solid rgba(245,158,11,.45);border-radius:var(--r-lg);padding:26px 28px;margin:4px 0 26px;box-shadow:0 8px 30px rgba(0,0,0,.22)}
+.calc-head{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:baseline;margin-bottom:22px}
+.calc-big b{font-size:clamp(2.6rem,7vw,3.6rem);font-weight:900;color:var(--amber);line-height:1;letter-spacing:-.02em;display:block}
+.calc-big span{font-size:1.02rem;color:#e8eff7;font-weight:600}
+.calc-rev{font-size:.95rem;color:#c4d3e4;text-align:right}
+.calc-rev strong{display:block;font-size:clamp(1.5rem,4vw,2rem);color:#fff;font-weight:800;letter-spacing:-.02em;margin-top:2px}
+.calc-slider label{display:block;font-size:.9rem;color:#c4d3e4;margin-bottom:14px}
+.calc-slider input[type=range]{width:100%;height:8px;-webkit-appearance:none;appearance:none;background:rgba(255,255,255,.16);border-radius:99px;outline:none}
+.calc-slider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:28px;height:28px;border-radius:50%;background:var(--amber);cursor:pointer;box-shadow:0 2px 12px rgba(245,158,11,.6);border:3px solid #fff}
+.calc-slider input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:var(--amber);cursor:pointer;border:3px solid #fff}
+.calc-scale{text-align:center;margin-top:12px;font-size:.95rem;color:#fff;font-weight:700}
+.calc-scale b{color:var(--amber);font-size:1.2rem}
+.calc-math{margin-top:18px;text-align:center;font-size:1.02rem;color:#fff;font-weight:600;background:rgba(0,0,0,.22);border-radius:var(--r);padding:13px 16px}
 
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:44px}
@@ -312,7 +333,7 @@ footer a{color:#c4d3e4;text-decoration:none}
       <span class="work">Subcontractor bid requests</span>
       <span class="work">Content &amp; review responses</span>
     </div>
-    <p class="note"><strong>Most businesses have 3–5 workflows that could be handled by an agent within 30–60 days of engagement.</strong> The scorecard below will show you yours.</p>
+    <p class="keyline"><strong>Most businesses have <span class="pop">3–5 workflows</span> that could be handled by an agent within <span class="pop">30–90 days</span> of engagement.</strong> The scorecard below will show you yours.</p>
   </div>
 </section>
 
@@ -333,6 +354,7 @@ footer a{color:#c4d3e4;text-decoration:none}
           <button class="opt" data-v="medical">Medical, dental, or wellness practice</button>
           <button class="opt" data-v="prof">Professional services (law, accounting, agency…)</button>
           <button class="opt" data-v="retail">Retail showroom / real estate</button>
+          <button class="opt" data-v="other">Other / something else</button>
         </div>
       </div>
 
@@ -393,12 +415,29 @@ footer a{color:#c4d3e4;text-decoration:none}
 
       <div class="res" id="res">
         <div class="res-top">
-          <div class="dial" id="dial" style="--p:0"><b id="dialNum">0</b></div>
+          <div class="dial-wrap">
+            <div class="dial" id="dial" style="--p:0"><b id="dialNum">0</b></div>
+            <span class="dial-lbl">AI Opportunity Score</span>
+          </div>
           <div class="money">Estimated revenue &amp; time left on the table:
             <strong id="moneyRange">$—</strong>
             per year, based on your answers
           </div>
         </div>
+
+        <div class="calc">
+          <div class="calc-head">
+            <div class="calc-big"><b id="calcClients">0</b><span>additional clients per year</span></div>
+            <div class="calc-rev">at <b id="calcTicket">$0</b> each, that's<strong id="calcRevenue">$0</strong>in new revenue per year</div>
+          </div>
+          <div class="calc-slider">
+            <label>Drag to set how many new clients you'd win each month once agents work <em style="color:#fff;font-style:normal;font-weight:700">every</em> lead, 24/7:</label>
+            <input type="range" id="clientSlider" min="1" max="20" value="4" />
+            <div class="calc-scale"><b id="calcPerMo">4</b> new clients per month</div>
+          </div>
+          <p class="calc-math" id="calcMath">—</p>
+        </div>
+
         <h3 style="margin-bottom:14px">Your top agent opportunities</h3>
         <div id="recs"></div>
         <div class="res-ctas">
@@ -550,7 +589,7 @@ footer a{color:#c4d3e4;text-decoration:none}
 
 <section class="final">
   <div class="wrap">
-    <h2>15 minutes. Three opportunities. Zero obligation.</h2>
+    <h2>15 minutes. Endless Opportunities. Zero obligation.</h2>
     <p>By the end of the call you'll know exactly which agents your business should run first — whether you build them with us or not.</p>
     <a class="btn btn-amber" href="https://calendly.com/ryan-brandlifemarketing/30min" style="font-size:1.1rem;padding:18px 38px">Book Your Free 15-Minute Audit Call</a>
   </div>
@@ -1129,6 +1168,22 @@ footer a{color:#c4d3e4;text-decoration:none}
     var fmt=function(n){return '$'+n.toLocaleString()};
     document.getElementById('moneyRange').textContent=fmt(lo)+' – '+fmt(hi);
 
+    // Additional-clients calculator — connect new clients to revenue, live
+    var maxPerMo=Math.max(12,Math.round(missed*4.33*0.5));
+    var defPerMo=Math.min(maxPerMo,Math.max(2,Math.round(missed*4.33*0.2)));
+    var slider=document.getElementById('clientSlider');
+    slider.min=1; slider.max=maxPerMo; slider.value=defPerMo;
+    function updateCalc(){
+      var perMo=+slider.value, perYr=perMo*12, moRev=perMo*ticket, yrRev=perYr*ticket;
+      document.getElementById('calcClients').textContent=perYr;
+      document.getElementById('calcPerMo').textContent=perMo;
+      document.getElementById('calcTicket').textContent=fmt(ticket);
+      document.getElementById('calcRevenue').textContent=fmt(yrRev);
+      document.getElementById('calcMath').textContent=perMo+' clients/mo × '+fmt(ticket)+' each  =  '+fmt(moRev)+'/mo  →  '+fmt(yrRev)+' per year';
+    }
+    slider.addEventListener('input',updateCalc);
+    updateCalc();
+
     // animate dial
     var dial=document.getElementById('dial'), num=document.getElementById('dialNum'), p=0;
     var t=setInterval(function(){ p++; dial.style.setProperty('--p',p); num.textContent=p;
@@ -1143,8 +1198,9 @@ footer a{color:#c4d3e4;text-decoration:none}
     if(industry==='trades'||industry==='retail') recs.push({n:'The "See It First" Experience',d:'Customers text a photo of their space and see your product installed in it, minutes later. The kind of experience people tell their friends about.',m:'Custom build · from $5,000'});
     if(industry==='medical') recs.push({n:'Patient Recall Agent',d:'Lapsed patients re-engaged, reminders sent, no-shows reduced — using compliant, healthcare-appropriate tools.',m:'Agent Install · $2,500'});
     if(industry==='prof') recs.push({n:'The Monday Briefing',d:'A weekly intelligence report on your clients, competitors, and pipeline — researched and written by an agent before you pour your coffee.',m:'Agent Install · $2,500'});
+    if(industry==='other') recs.push({n:'The Operations Agent',d:'Whatever your industry, the repetitive back-office work — quotes, reports, data entry, scheduling, follow-ups — handled by an agent your team directs.',m:'Agent Install · $2,500'});
     if(recs.length<3) recs.push({n:'The Monday Briefing',d:'A weekly report on your numbers, your pipeline, and your market — researched and written by an agent before you pour your coffee.',m:'Agent Install · $2,500'});
-    recs=recs.slice(0,3);
+    var seen={}; recs=recs.filter(function(r){ if(seen[r.n])return false; seen[r.n]=1; return true; }).slice(0,3);
 
     var html='';
     recs.forEach(function(r){ html+='<div class="rec"><b>'+r.n+'</b><span>'+r.d+'</span><span class="map">'+r.m+'</span></div>'; });
