@@ -152,7 +152,8 @@ section{padding:84px 0}
 .shift-card{background:var(--paper2);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px}
 .shift-card h3{font-size:1.12rem;margin-bottom:10px}
 .worklist{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 18px}
-.work{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:.9rem;font-weight:600;color:var(--ink2);box-shadow:var(--sh)}
+.work{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:.9rem;font-weight:600;color:var(--ink2);box-shadow:var(--sh);cursor:default;transition:box-shadow .28s ease,transform .28s ease,border-color .28s ease,color .28s ease}
+.work:hover{border-color:var(--amber);color:var(--ink);transform:translateY(-2px);box-shadow:0 0 0 1px rgba(245,158,11,.9),0 8px 26px rgba(245,158,11,.45),0 0 30px rgba(245,158,11,.32)}
 .note{font-size:.95rem;color:var(--txt2)}
 .keyline{margin-top:30px;background:linear-gradient(135deg,var(--amber-soft),#fff);border:1.5px solid var(--amber);border-left:6px solid var(--amber);border-radius:var(--r-lg);padding:24px 28px;font-size:clamp(1.15rem,2.2vw,1.45rem);line-height:1.45;color:var(--ink);box-shadow:0 6px 22px rgba(245,158,11,.16)}
 .keyline strong{color:var(--ink);font-weight:800}
@@ -191,12 +192,16 @@ section{padding:84px 0}
 .dial-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;flex:none}
 .dial-lbl{font-size:.74rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--amber)}
 .calc{background:rgba(245,158,11,.10);border:1.5px solid rgba(245,158,11,.45);border-radius:var(--r-lg);padding:26px 28px;margin:4px 0 26px;box-shadow:0 8px 30px rgba(0,0,0,.22)}
-.calc-head{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:baseline;margin-bottom:22px}
-.calc-big b{font-size:clamp(2.6rem,7vw,3.6rem);font-weight:900;color:var(--amber);line-height:1;letter-spacing:-.02em;display:block}
-.calc-big span{font-size:1.02rem;color:#e8eff7;font-weight:600}
-.calc-rev{font-size:.95rem;color:#c4d3e4;text-align:right}
-.calc-rev strong{display:block;font-size:clamp(1.5rem,4vw,2rem);color:#fff;font-weight:800;letter-spacing:-.02em;margin-top:2px}
-.calc-slider label{display:block;font-size:.9rem;color:#c4d3e4;margin-bottom:14px}
+.calc-head{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px}
+.calc-cell{background:rgba(8,16,28,.55);border:1px solid rgba(245,158,11,.30);border-radius:var(--r);padding:22px 18px 20px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:6px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 6px 22px rgba(0,0,0,.28)}
+.calc-cell>b,.calc-cell>strong{font-size:clamp(2.4rem,6.6vw,3.5rem);font-weight:900;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;display:block}
+.calc-cell>b{color:var(--amber);text-shadow:0 0 22px rgba(245,158,11,.45)}
+.calc-cell>strong{color:#fff;text-shadow:0 0 22px rgba(255,255,255,.18)}
+.calc-cell span{font-size:.95rem;color:#e8eff7;font-weight:600}
+.calc-cell small{font-size:.82rem;color:#c4d3e4;font-weight:600;display:block}
+.calc-cell small b{font-size:.9rem;color:#ffd278;font-weight:800}
+@media(max-width:520px){.calc-head{grid-template-columns:1fr}}
+.calc-slider label{display:block;font-size:.9rem;color:#c4d3e4;margin-bottom:14px;text-align:center}
 .calc-slider input[type=range]{width:100%;height:8px;-webkit-appearance:none;appearance:none;background:rgba(255,255,255,.16);border-radius:99px;outline:none}
 .calc-slider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:28px;height:28px;border-radius:50%;background:var(--amber);cursor:pointer;box-shadow:0 2px 12px rgba(245,158,11,.6);border:3px solid #fff}
 .calc-slider input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:var(--amber);cursor:pointer;border:3px solid #fff}
@@ -437,8 +442,15 @@ footer a{color:#c4d3e4;text-decoration:none}
 
         <div class="calc">
           <div class="calc-head">
-            <div class="calc-big"><b id="calcClients">0</b><span>additional clients per year</span></div>
-            <div class="calc-rev">at <b id="calcTicket">$0</b> each, that's<strong id="calcRevenue">$0</strong>in new revenue per year</div>
+            <div class="calc-cell">
+              <b id="calcClients">0</b>
+              <span>additional clients per year</span>
+            </div>
+            <div class="calc-cell">
+              <small>at <b id="calcTicket">$0</b> each, that's</small>
+              <strong id="calcRevenue">$0</strong>
+              <span>in new revenue per year</span>
+            </div>
           </div>
           <div class="calc-slider">
             <label>Drag to set how many new clients you'd win each month once agents work <em style="color:#fff;font-style:normal;font-weight:700">every</em> lead, 24/7:</label>
